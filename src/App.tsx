@@ -29,15 +29,6 @@ const projects = [
       "From sensor data to human activity. Finding structure in movement.",
     label: "Sensor data / PCA / KNN",
   },
-  {
-    id: "04",
-    title: "GOOGOL",
-    url: "https://github.com/zelario/googol-search-engine",
-    category: "SOFTWARE ENGINEERING / DISTRIBUTED SYSTEMS",
-    description:
-      "A distributed search engine. Connected components. A shared index.",
-    label: "Java / RMI / PostgreSQL",
-  },
 ];
 
 function Arrow() {
@@ -205,100 +196,54 @@ function ProjectVisual({
     );
   }
 
-  if (index === 2) {
-    return (
-      <div
-        className="visual visual-3 visual-activity"
-        role="img"
-        aria-label="Conceptual human movement sequence and sensor feature grid"
-      >
-        <svg viewBox="0 0 900 780" aria-hidden="true">
-          <g stroke="#bbb" opacity=".55">
-            {Array.from({ length: 13 }, (_, i) => (
-              <path key={`h${i}`} d={`M60 ${100 + i * 44}h780`} />
-            ))}
-            {Array.from({ length: 17 }, (_, i) => (
-              <path key={`v${i}`} d={`M${60 + i * 49} 100v528`} />
-            ))}
-          </g>
-          <g fill="#626262" fontFamily="monospace" fontSize="10" letterSpacing="1">
-            <text x="55" y="62">HUMAN ACTIVITY / SENSOR DATA</text>
-            <text x="55" y="726">FEATURES → PCA → KNN → ACTIVITY</text>
-            <text x="55" y="748">CONCEPTUAL MOVEMENT STUDY</text>
-          </g>
-          {[
-            { x: 225, opacity: 0.3, shift: -18 },
-            { x: 450, opacity: 0.6, shift: 12 },
-            { x: 675, opacity: 1, shift: 30 },
-          ].map(({ x, opacity, shift }) => (
-            <g
-              key={x}
-              transform={`translate(${x} 0)`}
-              opacity={opacity}
-              fill="none"
-              stroke="#262626"
-              strokeWidth="3"
-            >
-              <circle cx="0" cy="240" r="24" strokeWidth="2" />
-              <path
-                d={`M0 264V330L${shift} 413M0 290-45 343-74 377M0 290 45 327 72 297M${shift} 413 ${-42 + shift} 483 ${-72 + shift} 567M${shift} 413 ${40 + shift} 479 ${70 + shift} 567`}
-              />
-              <circle cx="0" cy="290" r="5" fill="#e5e5e5" />
-              <circle cx="0" cy="330" r="5" fill="#e5e5e5" />
-              <circle cx={shift} cy="413" r="5" fill="#e5e5e5" />
-              <circle cx="-45" cy="343" r="5" fill="#e5e5e5" />
-              <circle cx="45" cy="327" r="5" fill="#e5e5e5" />
-            </g>
-          ))}
-          <g fill="#666" fontFamily="monospace" fontSize="9">
-            <text x="192" y="653">FRAME / A</text>
-            <text x="417" y="653">FRAME / B</text>
-            <text x="642" y="653">FRAME / C</text>
-          </g>
-        </svg>
-      </div>
-    );
-  }
-
   return (
     <div
-      className="visual visual-4 visual-search"
+      className="visual visual-3 visual-activity"
       role="img"
-      aria-label="Conceptual distributed search architecture linking Java RMI and PostgreSQL"
+      aria-label="Conceptual human movement sequence and sensor feature grid"
     >
-      <svg viewBox="0 0 1200 680" aria-hidden="true">
-        <g fill="none" stroke="#525252">
-          <path d="M600 320 300 200M600 320 900 200M600 320 300 490M600 320 900 490M300 200V490M900 200V490M300 200H900M300 490H900" />
-          <circle cx="600" cy="320" r="88" stroke="#ddd" />
-          <circle cx="300" cy="200" r="48" />
-          <circle cx="900" cy="200" r="48" />
-          <circle cx="300" cy="490" r="48" />
-          <circle cx="900" cy="490" r="48" />
-        </g>
-        <g fill="#d5d5d5" fontFamily="monospace" textAnchor="middle">
-          <text x="600" y="316" fontSize="23" letterSpacing="3">GOOGOL</text>
-          <text x="600" y="342" fontSize="9" letterSpacing="2">
-            DISTRIBUTED SEARCH
-          </text>
-          <text x="300" y="203" fontSize="10">SEARCH</text>
-          <text x="900" y="203" fontSize="10">INDEX</text>
-          <text x="300" y="493" fontSize="10">JAVA RMI</text>
-          <text x="900" y="493" fontSize="9">POSTGRESQL</text>
-        </g>
-        <g fill="#f1f1f1">
-          {[
-            [440, 256],
-            [760, 256],
-            [434, 414],
-            [766, 414],
-          ].map(([cx, cy], i) => (
-            <circle key={i} cx={cx} cy={cy} r="4" />
+      <svg viewBox="0 0 900 780" aria-hidden="true">
+        <g stroke="#bbb" opacity=".55">
+          {Array.from({ length: 13 }, (_, i) => (
+            <path key={`h${i}`} d={`M60 ${100 + i * 44}h780`} />
+          ))}
+          {Array.from({ length: 17 }, (_, i) => (
+            <path key={`v${i}`} d={`M${60 + i * 49} 100v528`} />
           ))}
         </g>
-        <g fill="#888" fontFamily="monospace" fontSize="10" letterSpacing="1">
-          <text x="55" y="62">JAVA / RMI / POSTGRESQL</text>
-          <text x="55" y="625">CONNECTED SYSTEMS. DISTRIBUTED INFORMATION.</text>
-          <text x="845" y="625">CONCEPTUAL ARCHITECTURE</text>
+        <g fill="#626262" fontFamily="monospace" fontSize="10" letterSpacing="1">
+          <text x="55" y="62">HUMAN ACTIVITY / SENSOR DATA</text>
+          <text x="55" y="726">FEATURES → PCA → KNN → ACTIVITY</text>
+          <text x="55" y="748">CONCEPTUAL MOVEMENT STUDY</text>
+        </g>
+        {[
+          { x: 225, opacity: 0.3, shift: -18 },
+          { x: 450, opacity: 0.6, shift: 12 },
+          { x: 675, opacity: 1, shift: 30 },
+        ].map(({ x, opacity, shift }) => (
+          <g
+            key={x}
+            transform={`translate(${x} 0)`}
+            opacity={opacity}
+            fill="none"
+            stroke="#262626"
+            strokeWidth="3"
+          >
+            <circle cx="0" cy="240" r="24" strokeWidth="2" />
+            <path
+              d={`M0 264V330L${shift} 413M0 290-45 343-74 377M0 290 45 327 72 297M${shift} 413 ${-42 + shift} 483 ${-72 + shift} 567M${shift} 413 ${40 + shift} 479 ${70 + shift} 567`}
+            />
+            <circle cx="0" cy="290" r="5" fill="#e5e5e5" />
+            <circle cx="0" cy="330" r="5" fill="#e5e5e5" />
+            <circle cx={shift} cy="413" r="5" fill="#e5e5e5" />
+            <circle cx="-45" cy="343" r="5" fill="#e5e5e5" />
+            <circle cx="45" cy="327" r="5" fill="#e5e5e5" />
+          </g>
+        ))}
+        <g fill="#666" fontFamily="monospace" fontSize="9">
+          <text x="192" y="653">FRAME / A</text>
+          <text x="417" y="653">FRAME / B</text>
+          <text x="642" y="653">FRAME / C</text>
         </g>
       </svg>
     </div>
@@ -341,7 +286,7 @@ export default function App() {
               <div className="portrait-frame">
                 <img
                   src={portrait}
-                  alt="Retrato editorial temporário para a apresentação de José Amado"
+                  alt="Retrato de José Amado"
                 />
                 <span className="portrait-number micro"></span>
               </div>
@@ -365,8 +310,8 @@ export default function App() {
         <section className="work" id="work" aria-labelledby="work-title">
           <div className="section-label micro">
             <h2 id="work-title">SELECTED WORK</h2>
-            <span>FOUR PROJECTS. DIFFERENT QUESTIONS.</span>
-            <span>(01—04)</span>
+            <span>THREE PROJECTS. DIFFERENT QUESTIONS.</span>
+            <span>(01—03)</span>
           </div>
 
           <div className="project-list">
@@ -406,16 +351,15 @@ export default function App() {
         <section className="about" id="about" aria-labelledby="about-title">
           <div className="section-label micro">
             <span>BEHIND THE WORK</span>
-            <span>(05)</span>
+            <span>(04)</span>
           </div>
           <div className="about-layout">
             <h2 id="about-title">ABOUT</h2>
             <div className="about-copy">
               <p className="about-intro">
-                I’m an Informatics Engineer and Data Scientist{" "}
+                Informatics Engineer specializing in{" "}
                 <span>
-                  interested in building things, working with data, and
-                  exploring AI.
+                  Artificial Intelligence and Data Science
                 </span>
               </p>
               <p className="about-text">
@@ -426,19 +370,7 @@ export default function App() {
               <div className="about-details">
                 <AboutDisclosure title="EXPERIENCE">
                   <dl>
-                    <dt>NEXUS TEAM</dt>
-                    <dd>
-                      Tech Lead of a software engineering team project. Technical leadership,
-                      teamwork, and project development.
-                    </dd>
-                    <dt>HACKATHONS</dt>
-                    <dd>
-                      RESET — 2024
-                      <br />
-                      RESET — 2025
-                      <br />
-                      ShiftHappens — 2025
-                    </dd>
+
                   </dl>
                 </AboutDisclosure>
                 <AboutDisclosure title="EDUCATION">
@@ -446,37 +378,54 @@ export default function App() {
                     <p>
                       <strong>AI AND DATA SCIENCE MASTER&apos;S DEGREE</strong>
                       <span>University of Coimbra</span>
-                      <span>Coimbra, Portugal</span>
+                      <span>2026 — Expected 2028</span>
                     </p>
                     <p>
                       <strong>
                         INFORMATICS ENGINEERING BACHELOR&apos;S DEGREE
                       </strong>
                       <span>University of Coimbra</span>
-                      <span>Coimbra, Portugal</span>
+                      <span>2023 — 2026</span>
+                      <span>Grade: 16/20 (ECTS: A)</span>
                     </p>
                   </div>
-                </AboutDisclosure>
-                <AboutDisclosure title="FOCUS">
-                  <ul className="focus-list">
-                    <li>ARTIFICIAL INTELLIGENCE</li>
-                    <li>MACHINE LEARNING</li>
-                    <li>DATA SCIENCE</li>
-                    <li>DATA ANALYSIS</li>
-                    <li>SOFTWARE ENGINEERING</li>
-                  </ul>
                 </AboutDisclosure>
                 <AboutDisclosure title="TECHNOLOGIES">
                   <dl>
                     <dt>PROGRAMMING LANGUAGES</dt>
-                    <dd>Python · Java · C · C# · SQL</dd>
+                    <dd>Python · Java · C · C# · SQL · TypeScript</dd>
                     <dt>AI &amp; DATA</dt>
                     <dd>
-                      PostgreSQL · Pandas · NumPy · Matplotlib · Seaborn ·
-                      Scikit-learn · PyTorch · LLMs · AI Agents
+                      Pandas · NumPy · Scikit-learn · PyTorch · Matplotlib ·
+                      Seaborn · LLMs · AI Agents · PostgreSQL
                     </dd>
-                    <dt>SOFTWARE</dt>
-                    <dd>Git · Docker · GitHub CI/CD · Postman</dd>
+                    <dt>TOOLS &amp; INFRASTRUCTURE</dt>
+                    <dd>
+                      Git · Docker · Azure · Jira · GitHub CI/CD · Postman
+                    </dd>
+                  </dl>
+                </AboutDisclosure>
+                <AboutDisclosure title="CERTIFICATIONS">
+                  <dl>
+                    <dt>DATA SCIENTIST ASSOCIATE</dt>
+                    <dd>DataCamp · 2026</dd>
+                    <dt>DATA ANALYST ASSOCIATE</dt>
+                    <dd>DataCamp · 2026</dd>
+                  </dl>
+                </AboutDisclosure>
+                <AboutDisclosure title="OTHER">
+                  <dl>
+                    <dt>HACKATHONS</dt>
+                    <dd>
+                      <div>ShiftHappens · 2025</div>
+                      <div>RESET · 2025</div>
+                      <div>RESET · 2024</div>
+                    </dd>
+                    <dt>LANGUAGES</dt>
+                    <dd>
+                      <div>Portuguese (Native)</div>
+                      <div>English (C2, British Council Certificate)</div>
+                    </dd>
                   </dl>
                 </AboutDisclosure>
               </div>
@@ -487,7 +436,7 @@ export default function App() {
         <section className="contact" id="contact" aria-labelledby="contact-title">
           <div className="section-label micro">
             <span>OPEN TO CONVERSATIONS</span>
-            <span>(06)</span>
+            <span>(05)</span>
           </div>
           <h2 id="contact-title">
             GET IN
