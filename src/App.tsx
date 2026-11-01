@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import portrait from "./portrait";
 
 const projects = [
@@ -9,7 +9,7 @@ const projects = [
     category: "AI / SOFTWARE ENGINEERING",
     description:
       "AI-powered CV analysis and optimization. Structured improvements. Evidence, not invention.",
-    label: "Structured CV generation",
+
   },
   {
     id: "02",
@@ -18,7 +18,7 @@ const projects = [
     category: "DATA SCIENCE / DATA ANALYSIS",
     description:
       "Two drivers. One circuit. A closer look at performance through real racing data.",
-    label: "Telemetry / common distance grid",
+
   },
   {
     id: "03",
@@ -27,7 +27,7 @@ const projects = [
     category: "MACHINE LEARNING / DATA SCIENCE",
     description:
       "From sensor data to human activity. Finding structure in movement.",
-    label: "Sensor data / PCA / KNN",
+
   },
 ];
 
@@ -251,6 +251,25 @@ function ProjectVisual({
 }
 
 export default function App() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   return (
     <>
       <a className="skip-link" href="#work">
@@ -267,14 +286,7 @@ export default function App() {
 
       <main>
         <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-top micro">
-            <span>SOFTWARE / AI & DATA</span>
-            <span>
-              COIMBRA, PORTUGAL
-              <br />
-              PORTFOLIO
-            </span>
-          </div>
+
 
           <div className="hero-name-row">
             <h1 id="hero-title">
@@ -283,6 +295,7 @@ export default function App() {
               AMADO
             </h1>
             <figure className="hero-portrait">
+              <span className="portrait-location micro">COIMBRA, PORTUGAL</span>
               <div className="portrait-frame">
                 <img
                   src={portrait}
@@ -301,22 +314,14 @@ export default function App() {
               <br />
               and data-driven solutions.
             </p>
-            <a href="#work" className="micro">
-              SCROLL TO EXPLORE <span aria-hidden="true">↓</span>
-            </a>
           </div>
         </section>
 
-        <section className="work" id="work" aria-labelledby="work-title">
-          <div className="section-label micro">
-            <h2 id="work-title">SELECTED WORK</h2>
-            <span>THREE PROJECTS. DIFFERENT QUESTIONS.</span>
-            <span>(01—03)</span>
-          </div>
+        <section className="work" id="work">
 
           <div className="project-list">
             {projects.map((project, index) => (
-              <article className="project" key={project.id}>
+              <article className="project reveal" key={project.id}>
                 <a
                   className="project-visual"
                   href={project.url}
@@ -325,22 +330,17 @@ export default function App() {
                   aria-label={`Explore ${project.title} on GitHub`}
                 >
                   <ProjectVisual index={index} />
-                  <span className="visual-footer micro">
-                    {project.label}
-                    <Arrow />
-                  </span>
+
                 </a>
                 <div className="project-copy">
-                  <span className="micro project-index">
-                    PROJECT / {project.id}
-                  </span>
-                  <h3>
-                    <a href={project.url} target="_blank" rel="noreferrer">
-                      {project.title}
-                      <Arrow />
-                    </a>
-                  </h3>
-                  <p className="micro category">{project.category}</p>
+                  <div className="project-title-group">
+                    <h3>
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        {project.title}
+                      </a>
+                    </h3>
+                    <p className="micro category">{project.category}</p>
+                  </div>
                   <p className="project-description">{project.description}</p>
                 </div>
               </article>
@@ -349,11 +349,7 @@ export default function App() {
         </section>
 
         <section className="about" id="about" aria-labelledby="about-title">
-          <div className="section-label micro">
-            <span>BEHIND THE WORK</span>
-            <span>(04)</span>
-          </div>
-          <div className="about-layout">
+          <div className="about-layout reveal reveal-delay-1">
             <h2 id="about-title">ABOUT</h2>
             <div className="about-copy">
               <p className="about-intro">
@@ -370,7 +366,22 @@ export default function App() {
               <div className="about-details">
                 <AboutDisclosure title="EXPERIENCE">
                   <dl>
-
+                    <dt>
+                      STOKEDGE
+                      <span>Data Analyst Intern · 2026</span>
+                    </dt>
+                    <dd>
+                      Analyzed data to identify patterns and generate actionable
+                      insights for business decision-making.
+                    </dd>
+                    <dt>
+                      BYTHELAW
+                      <span>Software Engineer Contributor · 2026</span>
+                    </dt>
+                    <dd>
+                      Implemented legal rules and deadline-calculation logic for
+                      an automated procedural tool.
+                    </dd>
                   </dl>
                 </AboutDisclosure>
                 <AboutDisclosure title="EDUCATION">
@@ -433,11 +444,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="contact" id="contact" aria-labelledby="contact-title">
-          <div className="section-label micro">
-            <span>OPEN TO CONVERSATIONS</span>
-            <span>(05)</span>
-          </div>
+        <section className="contact reveal" id="contact" aria-labelledby="contact-title">
           <h2 id="contact-title">
             GET IN
             <br />
